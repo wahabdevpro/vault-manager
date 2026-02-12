@@ -80,6 +80,7 @@ export default function ListItem({ node }: ListItemProps): React.ReactElement {
       onContextMenu={handleContextMenu}
       role="button"
       tabIndex={0}
+      title={node.type === 'item' ? (node as ItemNode).content : undefined}
       onKeyDown={(e) => {
         if (e.key === 'Enter') handleClick()
       }}
