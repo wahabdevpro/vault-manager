@@ -1,0 +1,72 @@
+.searchBar {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  background-color: var(--bg-secondary);
+  flex-shrink: 0;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 10px;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.input {
+  width: 100%;
+  padding: 8px 32px 8px 34px;
+  background-color: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+.input:focus {
+  border-color: var(--accent);
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+}
+
+.clearButton {
+  position: absolute;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1;
+  transition: color var(--transition);
+}
+
+.clearButton:hover {
+  color: var(--text-primary);
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.checkbox input[type='checkbox'] {
+  accent-color: var(--accent);
+  cursor: pointer;
+}

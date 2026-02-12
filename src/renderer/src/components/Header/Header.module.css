@@ -1,0 +1,82 @@
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  background-color: var(--bg-secondary);
+  flex-shrink: 0;
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  transition: background-color var(--transition);
+}
+
+.backButton:hover:not(:disabled) {
+  background-color: var(--bg-hover);
+}
+
+.backButton:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.breadcrumb {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.lockButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  flex-shrink: 0;
+  margin-left: auto;
+  transition: color var(--transition), background-color var(--transition);
+}
+
+.lockButton:hover {
+  color: var(--accent);
+  background-color: var(--bg-hover);
+}
+
+.breadcrumbItem {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.clickable {
+  cursor: pointer;
+  color: var(--accent);
+  transition: color var(--transition);
+}
+
+.clickable:hover {
+  color: var(--accent-hover);
+}
+
+.separator {
+  color: var(--text-muted);
+  flex-shrink: 0;
+}

@@ -1,0 +1,19 @@
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 14px 4px 54px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.arrow {
+  font-size: 10px;
+}
+
+.segment {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px;
+}

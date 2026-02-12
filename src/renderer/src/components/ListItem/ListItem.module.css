@@ -1,0 +1,72 @@
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: filter var(--transition), border-color var(--transition);
+  border: 1px solid transparent;
+  outline: none;
+}
+
+.item:hover {
+  filter: brightness(1.4);
+}
+
+.item:active {
+  filter: brightness(1.6);
+}
+
+.item:focus-visible {
+  border-color: var(--accent);
+}
+
+.copied {
+  background-color: var(--success-bg) !important;
+  border-color: var(--success-border) !important;
+}
+
+.icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+}
+
+.folderIcon {
+  color: var(--folder-color);
+}
+
+.itemIcon {
+  color: var(--item-color);
+}
+
+.info {
+  flex: 1;
+  min-width: 0;
+}
+
+.name {
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.description {
+  font-size: 12px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 2px;
+}
+
+.chevron {
+  flex-shrink: 0;
+  color: var(--text-muted);
+}
