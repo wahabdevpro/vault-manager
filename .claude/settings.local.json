@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npm view:*)",
+      "Bash(node -e:*)",
+      "Bash(npx electron-vite build:*)",
+      "Bash(npx electron-vite:*)",
+      "Bash(node_modules/.bin/electron.cmd:*)",
+      "Bash(\"d:\\\\Business\\\\Jobs\\\\Softwares and Server\\\\Clipboard Manager\\\\node_modules\\\\.bin\\\\electron.cmd\" -e \"const e = require\\(''electron''\\); console.log\\(typeof e.app, Object.keys\\(e\\).slice\\(0,10\\)\\)\")",
+      "Bash(npx electron:*)",
+      "Bash(\"./node_modules/electron/dist/electron.exe\" test_electron.cjs)",
+      "Bash(npx which:*)",
+      "Bash(cmd.exe /c \"cd /d \"\"d:\\\\Business\\\\Jobs\\\\Softwares and Server\\\\Clipboard Manager\"\" && node_modules\\\\electron\\\\dist\\\\electron.exe test_raw.js\")",
+      "Bash(cmd //c \"node_modules\\\\electron\\\\dist\\\\electron.exe test_raw.js\")",
+      "Bash(dir:*)",
+      "Bash(node_modules/electron/dist/electron.exe -e \"const {app} = require\\(''electron''\\); console.log\\(''app:'', typeof app\\); app.quit\\(\\)\")",
+      "Bash(timeout 5 npm start:*)"
+    ]
+  }
+}
