@@ -15,7 +15,9 @@
       "Bash(cmd //c \"node_modules\\\\electron\\\\dist\\\\electron.exe test_raw.js\")",
       "Bash(dir:*)",
       "Bash(node_modules/electron/dist/electron.exe -e \"const {app} = require\\(''electron''\\); console.log\\(''app:'', typeof app\\); app.quit\\(\\)\")",
-      "Bash(timeout 5 npm start:*)"
+      "Bash(timeout 5 npm start:*)",
+      "Bash(npm run build:*)",
+      "Bash(npx electron-builder:*)"
     ]
   }
 }

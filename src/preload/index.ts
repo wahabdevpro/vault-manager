@@ -15,7 +15,10 @@ const api = {
   deleteNode: (id: string) => ipcRenderer.invoke('data:delete-node', { id }),
   reorderNode: (id: string, direction: 'up' | 'down') =>
     ipcRenderer.invoke('data:reorder', { id, direction }),
-  copyToClipboard: (text: string) => ipcRenderer.invoke('clipboard:write', { text })
+  copyToClipboard: (text: string) => ipcRenderer.invoke('clipboard:write', { text }),
+  getSettings: () => ipcRenderer.invoke('settings:get'),
+  setShortcut: (accelerator: string) =>
+    ipcRenderer.invoke('settings:set-shortcut', { accelerator })
 }
 
 contextBridge.exposeInMainWorld('api', api)

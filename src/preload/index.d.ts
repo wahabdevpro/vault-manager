@@ -19,6 +19,10 @@ export interface ItemNode {
   content: string
 }
 
+export interface AppSettings {
+  globalShortcut: string
+}
+
 export interface ElectronAPI {
   checkAuthStatus: () => Promise<{ hasData: boolean }>
   setupPassword: (password: string) => Promise<{ success: boolean; error?: string }>
@@ -36,6 +40,8 @@ export interface ElectronAPI {
   deleteNode: (id: string) => Promise<AppData>
   reorderNode: (id: string, direction: 'up' | 'down') => Promise<AppData>
   copyToClipboard: (text: string) => Promise<{ success: boolean }>
+  getSettings: () => Promise<AppSettings>
+  setShortcut: (accelerator: string) => Promise<{ success: boolean; error?: string }>
 }
 
 declare global {

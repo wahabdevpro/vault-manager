@@ -2,6 +2,7 @@ import { app, BrowserWindow } from 'electron'
 import { join } from 'path'
 import { createTray } from './tray'
 import { registerIpcHandlers } from './ipc-handlers'
+import { registerGlobalShortcut, unregisterGlobalShortcut } from './global-shortcut'
 
 const isDev = !app.isPackaged
 
@@ -49,15 +50,17 @@ function createWindow(): void {
 }
 
 app.whenReady().then(() => {
-  registerIpcHandlers()
   createWindow()
   if (mainWindow) {
+    registerIpcHandlers(mainWindow)
     createTray(mainWindow)
+    registerGlobalShortcut(mainWindow)
   }
 })
 
 app.on('before-quit', () => {
   ;(app as Record<string, unknown>).isQuitting = true
+  unregisterGlobalShortcut()
 })
 
 app.on('window-all-closed', () => {

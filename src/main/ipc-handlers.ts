@@ -1,4 +1,4 @@
-import { ipcMain, clipboard } from 'electron'
+import { ipcMain, clipboard, BrowserWindow } from 'electron'
 import {
   loadData,
   createGroup,
@@ -11,8 +11,10 @@ import {
   unlockWithPassword,
   lockVault
 } from './data-store'
+import { loadSettings, setSetting } from './settings-store'
+import { registerShortcutWithAccelerator } from './global-shortcut'
 
-export function registerIpcHandlers(): void {
+export function registerIpcHandlers(mainWindow: BrowserWindow): void {
   ipcMain.handle('auth:check-status', () => {
     return { hasData: hasDataFile() }
   })
@@ -81,5 +83,21 @@ export function registerIpcHandlers(): void {
   ipcMain.handle('clipboard:write', (_event, args: { text: string }) => {
     clipboard.writeText(args.text)
     return { success: true }
+  })
+
+  ipcMain.handle('settings:get', () => {
+    return loadSettings()
+  })
+
+  ipcMain.handle('settings:set-shortcut', (_event, args: { accelerator: string }) => {
+    const success = registerShortcutWithAccelerator(mainWindow, args.accelerator)
+    if (success) {
+      setSetting('globalShortcut', args.accelerator)
+      return { success: true }
+    }
+    return {
+      success: false,
+      error: 'Failed to register shortcut. It may conflict with another application.'
+    }
   })
 }

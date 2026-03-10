@@ -1,9 +1,15 @@
 import React from 'react'
 import { useAppContext } from '../../context/AppContext'
-import { ChevronLeftIcon, LockIcon } from '../Icons/Icons'
+import { ChevronLeftIcon, LockIcon, SettingsIcon } from '../Icons/Icons'
 import styles from './Header.module.css'
 
-export default function Header({ onLock }: { onLock: () => void }): React.ReactElement {
+export default function Header({
+  onLock,
+  onOpenSettings
+}: {
+  onLock: () => void
+  onOpenSettings: () => void
+}): React.ReactElement {
   const { navigationStack, currentPath, navigateBack, navigateToRoot, navigateToLevel } =
     useAppContext()
   const isAtRoot = navigationStack.length === 0
@@ -42,6 +48,9 @@ export default function Header({ onLock }: { onLock: () => void }): React.ReactE
           </React.Fragment>
         ))}
       </div>
+      <button className={styles.settingsButton} onClick={onOpenSettings} title="Settings">
+        <SettingsIcon size={18} />
+      </button>
       <button className={styles.lockButton} onClick={onLock} title="Lock vault">
         <LockIcon size={18} />
       </button>

@@ -43,7 +43,7 @@
   white-space: nowrap;
 }
 
-.lockButton {
+.settingsButton {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -53,6 +53,23 @@
   color: var(--text-muted);
   flex-shrink: 0;
   margin-left: auto;
+  transition: color var(--transition), background-color var(--transition);
+}
+
+.settingsButton:hover {
+  color: var(--accent);
+  background-color: var(--bg-hover);
+}
+
+.lockButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  flex-shrink: 0;
   transition: color var(--transition), background-color var(--transition);
 }
 

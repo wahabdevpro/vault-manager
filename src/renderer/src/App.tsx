@@ -8,12 +8,14 @@ import Modal from './components/Modal/Modal'
 import GroupForm from './components/GroupForm/GroupForm'
 import ItemForm from './components/ItemForm/ItemForm'
 import PasswordScreen from './components/PasswordScreen/PasswordScreen'
+import SettingsPage from './components/SettingsPage/SettingsPage'
 import styles from './App.module.css'
 
 type AuthState = 'checking' | 'needs-setup' | 'locked' | 'unlocked'
 
 function AppContent({ onLock }: { onLock: () => void }): React.ReactElement {
   const { modal, closeModal, toast } = useAppContext()
+  const [showSettings, setShowSettings] = useState(false)
 
   const getModalTitle = (): string => {
     switch (modal.type) {
@@ -30,9 +32,18 @@ function AppContent({ onLock }: { onLock: () => void }): React.ReactElement {
     }
   }
 
+  if (showSettings) {
+    return (
+      <div className={styles.app}>
+        <SettingsPage onBack={() => setShowSettings(false)} />
+        {toast && <div className={styles.toast}>{toast}</div>}
+      </div>
+    )
+  }
+
   return (
     <div className={styles.app}>
-      <Header onLock={onLock} />
+      <Header onLock={onLock} onOpenSettings={() => setShowSettings(true)} />
       <SearchBar />
       <ListView />
       <ContextMenu />
